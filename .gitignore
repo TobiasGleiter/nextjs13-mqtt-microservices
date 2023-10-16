@@ -38,3 +38,4 @@ next-env.d.ts
 
 # microservices
 /microservices/posts/node_modules
+/microservices/comments/node_modules
