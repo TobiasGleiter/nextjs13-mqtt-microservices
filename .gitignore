@@ -32,8 +32,8 @@ yarn-error.log*
 /client/.vercel
 
 # typescript
-*.tsbuildinfo
-next-env.d.ts
+/client/*.tsbuildinfo
+/client/next-env.d.ts
 
 
 # microservices
