@@ -13,6 +13,7 @@
 /client/out/
 /client/node_modules
 
+
 # production
 /client/build
 
@@ -41,3 +42,6 @@ yarn-error.log*
 /microservices/comments/node_modules
 /microservices/query/node_modules
 /microservices/moderation/node_modules
+
+# common
+.vscode
