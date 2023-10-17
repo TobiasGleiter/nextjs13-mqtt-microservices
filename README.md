@@ -1,9 +1,8 @@
 # Post and Comments App
 
-## Microservice Architecture with Next.js and Node.js
+## Microservice Architecture with Next.js, Node.js and Mqtt
 
-Welcome to the Microservice Architecture with Next.js and Node.js project. This application is built using Next.js on the frontend and Node.js on the backend, designed to showcase the power and flexibility of microservices.
-This application uses Next.js in frontend and Node,js in backend to achieve a microservice architecture.
+Microservices have become a popular architectural pattern for building scalable and maintainable applications. In this project, we leverage Next.js for the frontend and Node.js for the backend to implement a microservices-based application. Additionally, we incorporate MQTT, the Message Queuing Telemetry Transport protocol, to enable efficient, real-time communication between microservices, making it an ideal choice for IoT applications and other scenarios where lightweight, reliable messaging is crucial.
 
 ## Overview
 
