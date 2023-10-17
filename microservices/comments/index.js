@@ -38,8 +38,14 @@ app.post("/posts/:id/comments", async (req, res) => {
       commentsByPostId[req.params.id]
     );
 
+    const data = {
+      id: commentId,
+      content,
+      postId: req.params.id,
+      status: "pending",
+    };
     // mqtt publish new post
-    client.publish("comments/create", JSON.stringify(posts[id]));
+    client.publish("comments/create", JSON.stringify(data));
     console.log("http 'comments/create' request published");
 
     // return the newly created comments

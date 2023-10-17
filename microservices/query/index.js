@@ -19,6 +19,7 @@ const posts = {};
 client.on("connect", () => {
   // subscribe to the /posts topic
   client.subscribe("/posts");
+  client.subscribe("comments/create");
 });
 
 client.on("message", (topic, message) => {
@@ -34,7 +35,7 @@ client.on("message", (topic, message) => {
   }
 
   if (topic === "comments/create") {
-    const { id, content, postId, status } = data;
+    const { id, content, postId, status } = JSON.parse(message.toString());
 
     const post = posts[postId];
     post.comments.push({ id, content, status });
