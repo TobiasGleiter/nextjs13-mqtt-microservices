@@ -10,7 +10,10 @@ const ListComments: React.FC<IListComments> = ({ comments }) => {
       <ul className="text-base ml-2">
         {comments.map((comment: any, index: number) => {
           return (
-            <li key={index}>
+            <li
+              key={index}
+              className={`${comment.status === "rejected" && "text-red-500"}`}
+            >
               {comment.status === "approved" ? comment.content : comment.status}
             </li>
           );

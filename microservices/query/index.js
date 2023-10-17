@@ -20,6 +20,7 @@ client.on("connect", () => {
   // subscribe to the /posts topic
   client.subscribe("posts/create");
   client.subscribe("comments/create");
+  client.subscribe("moderation/moderated");
 });
 
 client.on("message", (topic, message) => {
@@ -39,6 +40,21 @@ client.on("message", (topic, message) => {
 
     const post = posts[postId];
     post.comments.push({ id, content, status });
+  }
+
+  if (topic === "moderation/moderated") {
+    console.log("moderation/moderated received");
+    console.log(JSON.parse(message.toString()));
+
+    const { id, postId, status, content } = JSON.parse(message.toString());
+
+    const post = posts[postId];
+    const comment = post.comments.find((comment) => {
+      return comment.id === id;
+    });
+
+    comment.status = status;
+    comment.content = content;
   }
 });
 
