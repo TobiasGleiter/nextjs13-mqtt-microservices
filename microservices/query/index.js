@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 // cors
 const cors = require("cors");
+const { type } = require("os");
 app.use(cors());
 app.use(express.json());
 
@@ -30,6 +31,13 @@ client.on("message", (topic, message) => {
 
     // Add the post to the posts object
     posts[id] = { id, title, comments: [] };
+  }
+
+  if (topic === "comments/create") {
+    const { id, content, postId, status } = data;
+
+    const post = posts[postId];
+    post.comments.push({ id, content, status });
   }
 });
 
