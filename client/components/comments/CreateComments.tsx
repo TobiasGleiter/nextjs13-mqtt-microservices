@@ -31,16 +31,16 @@ const CreateComments: React.FC<ICreateComments> = ({ postId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-row border rounded-xl">
+    <form onSubmit={handleSubmit} className="flex flex-row border rounded-sm">
       <input
         onChange={(e) => setContent(e.target.value)}
         value={content}
         placeholder="Add new comment..."
-        className=" bg-white flex-1 text-sm rounded-l-full pl-4 ring-0 focus:ring-0 outline-none"
+        className=" bg-white flex-1 text-sm rounded-l-sm pl-4 ring-0 focus:ring-0 outline-none"
       />
       <button
         type="submit"
-        className="flex items-center px-4 bg-zinc-400 text-white justify-center rounded-r-full hover:bg-cyan-400 duration-200"
+        className="flex items-center px-4 bg-zinc-400 text-white justify-center rounded-r-sm hover:bg-cyan-400 duration-200"
       >
         <BaseIcon icon="plus" style="w-6 h-6" />
       </button>

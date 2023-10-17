@@ -1,6 +1,7 @@
 "use client";
 import CreateComments from "@/components/comments/CreateComments";
 import ListComments from "@/components/comments/ListComments";
+import LoadingSkeleton from "@/components/loading/LoadingSkeleton";
 import CreatePosts from "@/components/posts/CreatePosts";
 import { fetcher } from "@/helpers/fetcher";
 import useSWR from "swr";
@@ -12,20 +13,24 @@ export default function PostsPage() {
     isLoading,
     error,
   } = useSWR("http://localhost:4002/posts", fetcher, {
-    refreshInterval: 1000,
+    refreshInterval: 3000,
   });
 
+  // While loading posts
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingSkeleton />;
   }
+
+  // Error handling
+  if (error) throw new Error(error.message);
 
   return (
     <div className="w-full">
-      <h1 className="text-3xl font-bold mb-6">Posts</h1>
       {/** POSTS CREATE */}
       <CreatePosts />
       {/** POSTS LIST */}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 w-full">
+
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 w-full mb-40">
         {Object.values(posts).map((post: any) => {
           return (
             <div
