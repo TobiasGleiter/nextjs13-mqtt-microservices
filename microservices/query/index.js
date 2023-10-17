@@ -18,12 +18,12 @@ const posts = {};
 // MQTT
 client.on("connect", () => {
   // subscribe to the /posts topic
-  client.subscribe("/posts");
+  client.subscribe("posts/create");
   client.subscribe("comments/create");
 });
 
 client.on("message", (topic, message) => {
-  if (topic === "/posts") {
+  if (topic === "posts/create") {
     // Parse the message into a JavaScript object
     const post = JSON.parse(message.toString());
 

@@ -31,8 +31,8 @@ app.post("/posts", async (req, res) => {
     console.log("http post/posts request received", posts[id]);
 
     // mqtt publish new post
-    client.publish("/posts", JSON.stringify(posts[id]));
-    console.log("http '/posts' request published");
+    client.publish("posts/create", JSON.stringify(posts[id]));
+    console.log("http 'posts/create' request published");
 
     // return the newly created post
     res.status(201).send(posts[id]);
