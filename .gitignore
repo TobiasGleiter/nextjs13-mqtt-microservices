@@ -45,3 +45,6 @@ yarn-error.log*
 
 # common
 .vscode
+
+# docs
+/docs/~$Event-Data-Flow-Table.xlsx

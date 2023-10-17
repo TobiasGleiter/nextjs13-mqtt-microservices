@@ -4,6 +4,10 @@
 
 ![Application Overview](./docs/Application.png)
 
+## Event Flow (MQTT Events)
+
+![Event Flow (MQTT Events)](./docs/Event-Data-Flow-Table.png)
+
 ## Folder Structure
 
 ```none
