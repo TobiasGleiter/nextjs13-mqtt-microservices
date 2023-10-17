@@ -4,10 +4,6 @@
 
 Microservices have become a popular architectural pattern for building scalable and maintainable applications. In this project, we leverage Next.js for the frontend and Node.js for the backend to implement a microservices-based application. Additionally, we incorporate MQTT, the Message Queuing Telemetry Transport protocol, to enable efficient, real-time communication between microservices, making it an ideal choice for IoT applications and other scenarios where lightweight, reliable messaging is crucial.
 
-## Overview
-
-Microservices have become a popular architectural pattern for building scalable and maintainable applications. In this project, we leverage Next.js for the frontend and Node.js for the backend to implement a microservices-based application. This README provides an overview of the project structure, key features, and how to get started.
-
 ![Application Overview](./docs/frontend-preview.png)
 
 ## Features
