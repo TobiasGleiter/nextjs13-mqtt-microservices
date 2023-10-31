@@ -1,0 +1,44 @@
+services:
+  comments:
+    build:
+      context: ./comments/
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    container_name: comments
+    image: comments
+    hostname: tg-comments
+
+  moderation:
+    build:
+      context: ./moderation/
+      dockerfile: Dockerfile
+    ports:
+      - "4003:4003"
+    container_name: moderation
+    image: moderation
+    hostname: tg-moderation
+
+  posts:
+    build:
+      context: ./posts/
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    container_name: posts
+    image: posts
+    hostname: tg-posts
+
+  query:
+    build:
+      context: ./query/
+      dockerfile: Dockerfile
+    ports:
+      - "4002:4002"
+    container_name: query
+    image: query
+    hostname: tg-query
+
+networks:
+  default:
+    name: tg-bridge
