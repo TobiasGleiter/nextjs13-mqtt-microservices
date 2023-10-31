@@ -23,11 +23,21 @@ services:
     build:
       context: ./posts/
       dockerfile: Dockerfile
-    ports:
-      - "4000:4000"
-    container_name: posts
+    # No ports/container name to scale the service
+    #ports:
+    #  - "4000:4000"
+    #container_name: posts
     image: posts
     hostname: tg-posts
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - posts
+    ports:
+      - "4000:4000"
 
   query:
     build:
