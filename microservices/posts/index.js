@@ -1,6 +1,12 @@
 // mqtt
 const mqtt = require("mqtt");
-const client = mqtt.connect("mqtt://broker.hivemq.com");
+
+const options = {
+  clientid: "post",
+  username: "test",
+  password: "test",
+};
+const client = mqtt.connect("mqtt://mqtt-broker:1883", options); // local mqttbroker
 // express
 const express = require("express");
 const app = express();

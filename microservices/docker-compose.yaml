@@ -1,4 +1,17 @@
+version: "3"
 services:
+  # mqtt5 eclipse-mosquitto
+  mqttbroker:
+    image: eclipse-mosquitto
+    container_name: mqttbroker
+    hostname: mqtt-broker
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - ./mosquitto/data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+
   comments:
     build:
       context: ./comments/
