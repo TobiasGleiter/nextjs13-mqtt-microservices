@@ -1,24 +1,42 @@
 # Post and Comments App
 
-## Microservice Architecture with Next.js, Node.js and Mqtt
+## Microservice Architecture with Next.js, Node.js, Mqtt, Docker, and nginx loadbalancing
 
-Microservices have become a popular architectural pattern for building scalable and maintainable applications. In this project, we leverage Next.js for the frontend and Node.js for the backend to implement a microservices-based application. Additionally, we incorporate MQTT, the Message Queuing Telemetry Transport protocol, to enable efficient, real-time communication between microservices, making it an ideal choice for IoT applications and other scenarios where lightweight, reliable messaging is crucial.
+In this project, we build a scalable application using Next.js for the frontend and Node.js for the backend, following the microservices pattern. We containerize the services using Docker for easy deployment and scaling. MQTT is used for efficient, real-time communication between microservices, making it ideal for IoT applications. An Nginx server is employed for load balancing, ensuring even distribution of traffic and enhancing performance and reliability.
 
 ![Application Overview](./docs/frontend-preview.png)
 
 ## Features
 
-- Frontend with Next.js: The frontend of this application is powered by Next.js, a popular React framework. Next.js provides server-side rendering, automatic code splitting, and an easy way to create dynamic, high-performance web applications.
-- Backend with Node.js: Our backend services are built using Node.js, a lightweight and efficient runtime for building server-side applications. Node.js is known for its speed and scalability, making it an ideal choice for microservices.
-- Microservice Architecture: We've designed this application to embrace a microservices architecture. Each microservice is responsible for a specific aspect of the application, allowing for independent development, deployment, and scaling.
+- **Frontend with Next.js:** The frontend of this application is powered by Next.js, a popular React framework. Next.js provides server-side rendering, automatic code splitting, and an easy way to create dynamic, high-performance web applications.
+- **Backend with Node.js:** Our backend services are built using Node.js, a lightweight and efficient runtime for building server-side applications. Node.js is known for its speed and scalability, making it an ideal choice for microservices.
+- **Microservice Architecture:** We've designed this application to embrace a microservices architecture. Each microservice is responsible for a specific aspect of the application, allowing for independent development, deployment, and scaling.
+- **Containerization with Docker:** All microservices are containerized using Docker, ensuring consistent behavior across different environments and simplifying deployment processes. Docker encapsulates each service along with its dependencies into a portable container.
+- **Load Balancing with Nginx:** To ensure a seamless and responsive user experience, we employ an Nginx server for load balancing. Nginx efficiently distributes incoming traffic among multiple servers, optimizing performance and resilience.
+- **Local MQTT with Eclipse-Mosquitto:** This branch leverages the official Eclipse Mosquitto image to establish a local MQTT broker, ensuring efficient and reliable message exchange within the network. The lightweight and open-source nature of Eclipse Mosquitto facilitates seamless communication between devices and applications, even in environments with limited bandwidth.
 
 ## Getting Started
 
 To get started with this project, follow these steps:
 
 1. `npm install` in all projects (client, microservices)
-2. `npm start`in all projects (client, microservices)
-3. `localhost:300`to test the application
+2. `cd client`, `cd comments`, ...
+3. `npm start`in all projects (client, microservices)
+4. `localhost:3000`to test the application
+
+If you want to use Docker, pull the `simple-docker` branch. Then:
+
+1. `npm install` in all projects (client, microservices)
+2. `cd client` and `npm start`to start the client
+3. `cd microservices` and `docker-compose up --build -d` to start the microservices
+4. scale the posts service with `docker-compose --scale posts=2 -d`
+
+If you want to use Docker-Compose, pull the `docker-moquitto-mqtt` branch. Then:
+
+1. `npm install` in all projects (client, microservices)
+2. `cd client` and `npm start`to start the client
+3. `cd microservices` and `docker-compose up --build -d` to start the microservices
+4. scale the posts service with `docker-compose --scale posts=2 -d`
 
 ## Dependencies
 
