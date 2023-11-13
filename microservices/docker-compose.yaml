@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services:
   # mqtt5 eclipse-mosquitto
   mqttbroker:
@@ -61,6 +61,18 @@ services:
     container_name: query
     image: query
     hostname: tg-query
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    container_name: mongodb
+    hostname: tg-mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/db:/data/db
 
 networks:
   default:
