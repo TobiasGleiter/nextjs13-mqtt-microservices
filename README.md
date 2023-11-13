@@ -38,6 +38,10 @@ If you want to use Docker-Compose, pull the `docker-moquitto-mqtt` branch. Then:
 3. `cd microservices` and `docker-compose up --build -d` to start the microservices
 4. scale the posts service with `docker-compose --scale posts=2 -d`
 
+If you want to use Docker-Compose, pull the `docker-moquitto-mqtt-mongodb` branch. Then:
+
+1.
+
 ## Dependencies
 
 ### Frontend Dependencies
