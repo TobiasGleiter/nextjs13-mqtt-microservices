@@ -1,7 +1,0 @@
-exit
-db.postmodels.find()
-show collections
-use posts
-show databases
-exit
-show databases
