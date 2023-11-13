@@ -28,6 +28,8 @@ services:
     container_name: posts
     image: posts
     hostname: tg-posts
+    volumes:
+      - ./posts/var/lib:/var/lib
 
   query:
     build:
